@@ -42,7 +42,7 @@ inputs:
     description: 'An AWS region where the bucket is located'
     required: false
   aws-endpoint:
-    description: 'An endpoint of AWS S3 (for compatible software)'
+    description: 'An endpoint of AWS S3 (for compatible software). If not set, https://s3.${aws-region}.amazonaws.com will be used.'
     required: false
   aws-s3-bucket-endpoint:
     description: 'Whether to use the bucket name as the endpoint for this request.'
@@ -56,7 +56,7 @@ outputs:
   cache-hit:
     description: 'A boolean value to indicate an exact match was found for the primary key'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/restore/index.js'
   post: 'dist/save/index.js'
   post-if: success()

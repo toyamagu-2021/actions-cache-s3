@@ -99,7 +99,7 @@ export function getInputS3ClientConfig(): S3ClientConfig | undefined {
                 process.env["AWS_SESSION_TOKEN"]
         },
         region: core.getInput(Inputs.AWSRegion) || process.env["AWS_REGION"],
-        endpoint: core.getInput(Inputs.AWSEndpoint),
+        endpoint: core.getInput(Inputs.AWSEndpoint) || undefined,
         bucketEndpoint: core.getBooleanInput(Inputs.AWSS3BucketEndpoint),
         forcePathStyle: core.getBooleanInput(Inputs.AWSS3ForcePathStyle)
     } as S3ClientConfig;
